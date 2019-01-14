@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Event from '../components/event'
 
-const SecondPage = ({ data }) => {
+const Events = ({ data }) => {
   const pastEvents = data.meetupGroup.childrenMeetupEvent.filter(
     event => event.status === 'past'
   )
@@ -22,7 +22,7 @@ const SecondPage = ({ data }) => {
   )
 }
 
-export default SecondPage
+export default Events
 
 export const query = graphql`
   query {

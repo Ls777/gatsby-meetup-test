@@ -16,11 +16,11 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
-      <Link to='/page-2/'>Past Events</Link>
+      <Link to='/events/'>Past Events</Link>
       <p dangerouslySetInnerHTML={groupDescription} />
 
       <h2>Upcoming Event</h2>
-      <Event event={event} />
+      {event ? <Event event={event} /> : <h3>no current event scheduled.</h3>}
     </Layout>
   )
 }

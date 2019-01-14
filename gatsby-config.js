@@ -32,8 +32,8 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
       }
-    },
-    {
+    }
+    /* {
       resolve: `gatsby-source-meetup`,
       options: {
         // Learn about environment variables: https://gatsby.app/env-vars
@@ -41,14 +41,15 @@ module.exports = {
         key: process.env.MEETUP_API_KEY,
         // Mandatory: the URL name of a Meetup Group.
         // See the URL of the group page, e.g. https://www.meetup.com/fr-FR/jamstack-paris
-        groupUrlName: 'Long-Island-Wordpress-Users',
+        // Long-Island-Wordpress-Users
+        groupUrlName: 'developerdeepdives',
         // Optional parameters for retrieving Events, see full documentation at
         // https://www.meetup.com/meetup_api/docs/:urlname/events/?uri=%2Fmeetup_api%2Fdocs%2F%3Aurlname%2Fevents%2F#list
         status: 'upcoming,past',
         desc: 'true',
         page: 20
       }
-    }
+    } */
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
