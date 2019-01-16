@@ -1,9 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
+import styled, { createGlobalStyle } from 'styled-components'
 
-import Header from './header'
-import './layout.css'
+import Navbar from './navbar'
+import './layout.css' // styles for default starter
+
+const GlobalStyle = createGlobalStyle`
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #2A2E38;
+  color: #DDD;
+}
+
+a {
+  color: #15dcd1;
+}
+
+`
+
+const Container = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0px 1.0875rem 1.45rem;
+  padding-top: 0;
+`
+
+const Footer = styled.footer`
+  font-family: 'Roboto Mono';
+  text-align: center;
+`
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -21,22 +47,16 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.meetupGroup.name} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0
-          }}
-        >
+        <GlobalStyle />
+        <Navbar siteTitle={data.meetupGroup.name} />
+        <Container>
           {children}
-          <footer>
+          <Footer>
             © {new Date().getFullYear()}, Built with
             {` `}
             <a href='https://www.gatsbyjs.org'>Gatsby</a>
-          </footer>
-        </div>
+          </Footer>
+        </Container>
       </>
     )}
   />

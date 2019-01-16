@@ -13,8 +13,7 @@ const Events = ({ data }) => {
   return (
     <Layout>
       <SEO title='Page two' />
-      <h1>Past Events</h1>
-      <Link to='/'>Go back to the homepage</Link>
+      <h1>PAST EVENTS</h1>
       {pastEvents.map(event => (
         <Event event={event} key={event.id} />
       ))}

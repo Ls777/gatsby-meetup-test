@@ -1,14 +1,33 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-const NotFoundPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that does exist!</p>
-  </Layout>
-)
+const Description = styled.p`
+  font-family: 'Roboto';
+`
+
+const NotFoundPage = ({ data }) => {
+  const groupDescription = { __html: data.meetupGroup.description }
+
+  return (
+    <Layout>
+      <SEO title='About' />
+      <h1>ABOUT</h1>
+      <Description dangerouslySetInnerHTML={groupDescription} />
+    </Layout>
+  )
+}
 
 export default NotFoundPage
+
+export const query = graphql`
+  query {
+    meetupGroup {
+      name
+      link
+      description
+    }
+  }
+`
