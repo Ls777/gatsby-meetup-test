@@ -9,8 +9,12 @@ import './layout.css' // styles for default starter
 const GlobalStyle = createGlobalStyle`
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #2A2E38;
+  font-display: fallback;
   color: #DDD;
+}
+
+html {
+  background-color: #2A2E38;
 }
 
 a {

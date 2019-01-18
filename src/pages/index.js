@@ -31,15 +31,23 @@ const Lead = styled.h1`
 `
 
 const Upcoming = styled.h2`
+  font-family: 'Roboto Mono';
+  color: #666;
   margin: auto;
   text-align: center;
-  font-weight: 300;
+  font-weight: 400;
+`
+
+const Spacer = styled.div`
+  height: 100px;
 `
 
 const IndexPage = ({ data }) => {
   const event = data.meetupGroup.childrenMeetupEvent.filter(
     event => event.time === data.meetupGroup.next_event.time
   )[0]
+
+  console.log(event)
 
   return (
     <Layout>
@@ -52,8 +60,8 @@ const IndexPage = ({ data }) => {
         </Icon>
         <Lead>Meet other Javascript Developers on Long Island.</Lead>
       </Header>
-      <Upcoming>Upcoming Event</Upcoming>
-      {event ? <Event event={event} /> : <h3>no current event scheduled.</h3>}
+      <Upcoming>{event ? `next event:` : `no upcoming event`}</Upcoming>
+      {event ? <Event event={event} /> : <Spacer />}
     </Layout>
   )
 }

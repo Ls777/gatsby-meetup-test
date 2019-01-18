@@ -19,6 +19,7 @@ const Container = styled.div`
 
 const Title = styled.h1`
   font: italic bold 36px 'Roboto Mono';
+  font-display: fallback;
   color: #ff4141;
   margin: 0;
   flex-grow: 1;
@@ -32,6 +33,7 @@ const HomeLink = styled(Link)`
 const PageLink = styled(Link)`
   text-decoration: none;
   font: 24px 'Roboto Mono';
+  font-display: fallback;
   margin-left: 30px;
   color: #ffa741;
   &.active {

@@ -1,9 +1,16 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Event from '../components/event'
+
+const Header = styled.div`
+  margin: 1rem auto -5rem;
+  padding: 2rem;
+  max-width: 800px;
+`
 
 const Events = ({ data }) => {
   const pastEvents = data.meetupGroup.childrenMeetupEvent.filter(
@@ -12,8 +19,10 @@ const Events = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title='Page two' />
-      <h1>PAST EVENTS</h1>
+      <SEO title='Past Events' />
+      <Header>
+        <h1>PAST EVENTS</h1>
+      </Header>
       {pastEvents.map(event => (
         <Event event={event} key={event.id} />
       ))}

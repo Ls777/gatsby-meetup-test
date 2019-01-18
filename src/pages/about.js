@@ -4,8 +4,19 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-const Description = styled.p`
-  font-family: 'Roboto';
+const Description = styled.span`
+  font-family: 'Roboto Mono';
+  font-size: 18px;
+`
+
+const Container = styled.div`
+  min-height: 300px;
+  max-width: 800px;
+  margin: 1rem auto;
+  padding: 2rem;
+  h1 {
+    margin-bottom: 3rem;
+  }
 `
 
 const NotFoundPage = ({ data }) => {
@@ -14,8 +25,10 @@ const NotFoundPage = ({ data }) => {
   return (
     <Layout>
       <SEO title='About' />
-      <h1>ABOUT</h1>
-      <Description dangerouslySetInnerHTML={groupDescription} />
+      <Container>
+        <h1>ABOUT</h1>
+        <Description dangerouslySetInnerHTML={groupDescription} />
+      </Container>
     </Layout>
   )
 }

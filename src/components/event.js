@@ -49,7 +49,7 @@ const Event = ({ event }) => {
         <Blue>{'# '}</Blue>
         <Green>Description</Green>
       </p>
-      <p dangerouslySetInnerHTML={eventDescription} />
+      <span dangerouslySetInnerHTML={eventDescription} />
       <p>{event.yes_rsvp_count} people RSVP'd</p>
     </Container>
   )
