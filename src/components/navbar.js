@@ -1,7 +1,9 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
+import HamburgerMenu from 'react-hamburger-menu'
+import Media from 'react-media'
 
 const Nav = styled.nav`
   background: #363945;
@@ -41,21 +43,51 @@ const PageLink = styled(Link)`
   }
 `
 
-const Navbar = ({ siteTitle }) => (
-  <Nav>
-    <Container>
-      <Title>
-        <HomeLink to='/'>{siteTitle.toUpperCase()}</HomeLink>
-      </Title>
-      <PageLink to='/about/' activeClassName='active'>
-        about
-      </PageLink>
-      <PageLink to='/events/' activeClassName='active'>
-        past_events
-      </PageLink>
-    </Container>
-  </Nav>
-)
+class Navbar extends Component {
+  state = { open: false }
+
+  handleClick = () => {
+    this.setState(prevState => ({ open: !prevState.open }))
+  }
+
+  render () {
+    return (
+      <Nav>
+        <Container>
+          <Title>
+            <HomeLink to='/'>{this.props.siteTitle.toUpperCase()}</HomeLink>
+          </Title>
+          <Media query='(min-width: 800px)'>
+            {matches =>
+              matches ? (
+                <>
+                  <PageLink to='/about/' activeClassName='active'>
+                    about
+                  </PageLink>
+                  <PageLink to='/events/' activeClassName='active'>
+                    past_events
+                  </PageLink>
+                </>
+              ) : (
+                <HamburgerMenu
+                  isOpen={this.state.open}
+                  menuClicked={this.handleClick.bind(this)}
+                  width={40}
+                  height={23}
+                  strokeWidth={3}
+                  rotate={0}
+                  color='#AAA'
+                  borderRadius={0}
+                  animationDuration={0.2}
+                />
+              )
+            }
+          </Media>
+        </Container>
+      </Nav>
+    )
+  }
+}
 
 Navbar.propTypes = {
   siteTitle: PropTypes.string
