@@ -12,6 +12,11 @@ const Header = styled.div`
   height: 500px;
   align-items: center;
   justify-content: space-around;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `
 
 const Icon = styled.div`
@@ -28,6 +33,10 @@ const Lead = styled.h1`
   font-weight: 400;
   max-width: 600px;
   margin: 0;
+
+  @media screen and (max-width: 800px) {
+    margin: 15px;
+  }
 `
 
 const Upcoming = styled.h2`
