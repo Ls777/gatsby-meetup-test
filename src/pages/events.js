@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
+import Typing from 'react-typist'
+import 'react-typist/dist/typist.css'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Event from '../components/event'
+import Numberline from '../components/numberline'
 
 const Header = styled.div`
   margin: 1rem auto -5rem;
@@ -21,8 +24,13 @@ const Events = ({ data }) => {
     <Layout>
       <SEO title='Past Events' />
       <Header>
-        <h1>PAST EVENTS</h1>
+        <h1>
+          <Typing avgTypingDelay={30} stdTypingDelay={5}>
+            PAST EVENTS
+          </Typing>
+        </h1>
       </Header>
+      <Numberline />
       {pastEvents.map(event => (
         <Event event={event} key={event.id} />
       ))}

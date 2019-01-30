@@ -7,6 +7,9 @@ import Image from '../components/image'
 import SEO from '../components/seo'
 import Event from '../components/event'
 
+import Typing from 'react-typist'
+import 'react-typist/dist/typist.css'
+
 const Header = styled.div`
   display: flex;
   height: 500px;
@@ -22,6 +25,7 @@ const Header = styled.div`
 const Icon = styled.div`
   font-size: 120px;
   color: #ff4141;
+  user-select: none;
 `
 
 const Blue = styled.span`
@@ -32,10 +36,13 @@ const Lead = styled.h1`
   font-size: 48px;
   font-weight: 400;
   max-width: 600px;
+  min-width: 600px;
   margin: 0;
+  min-height: 104px;
 
   @media screen and (max-width: 800px) {
     margin: 15px;
+    min-width: 0px;
   }
 `
 
@@ -67,7 +74,11 @@ const IndexPage = ({ data }) => {
           <Blue>/</Blue>
           {'>'}
         </Icon>
-        <Lead>Meet other Javascript Developers on Long Island.</Lead>
+        <Lead>
+          <Typing avgTypingDelay={70} stdTypingDelay={30}>
+            Meet other Javascript Developers on Long Island.
+          </Typing>
+        </Lead>
       </Header>
       <Upcoming>{event ? `next event:` : `no upcoming event`}</Upcoming>
       {event ? <Event event={event} /> : <Spacer />}

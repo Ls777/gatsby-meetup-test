@@ -2,10 +2,31 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  margin: 1rem auto;
-  padding: 2rem;
+  margin: 21px auto;
+  padding: 42px;
   max-width: 800px;
   font-family: 'Roboto Mono';
+  position: relative;
+
+  a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit;
+  }
+
+  a:before {
+    position: absolute;
+    content: '';
+    display: block;
+    height: 10px;
+    width: 10px;
+    border-radius: 10px;
+    top: 48px;
+    left: -20px;
+  }
+
+  a:hover:before {
+    background-color: #ff4141;
+  }
 `
 
 const Red = styled.span`
@@ -31,26 +52,28 @@ const Event = ({ event }) => {
 
   return (
     <Container>
-      <p>
-        ---
-        <br />
-        {fakeFrontMatter.map(item => (
-          <span key={item.key}>
-            <Red>{item.key}</Red>
-            <Blue>: "</Blue>
-            <Green>{item.value}</Green>
-            <Blue>"</Blue>
-            <br />
-          </span>
-        ))}
-        ---
-      </p>
-      <p>
-        <Blue>{'# '}</Blue>
-        <Green>Description</Green>
-      </p>
-      <span dangerouslySetInnerHTML={eventDescription} />
-      <p>{event.yes_rsvp_count} people RSVP'd</p>
+      <a href={event.link}>
+        <p>
+          ---
+          <br />
+          {fakeFrontMatter.map(item => (
+            <span key={item.key}>
+              <Red>{item.key}</Red>
+              <Blue>: "</Blue>
+              <Green>{item.value}</Green>
+              <Blue>"</Blue>
+              <br />
+            </span>
+          ))}
+          ---
+        </p>
+        <p>
+          <Blue>{'# '}</Blue>
+          <Green>Description</Green>
+        </p>
+        <span dangerouslySetInnerHTML={eventDescription} />
+        <p>{event.yes_rsvp_count} people RSVP'd</p>
+      </a>
     </Container>
   )
 }

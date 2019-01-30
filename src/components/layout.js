@@ -11,6 +11,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-display: fallback;
   color: #DDD;
+  
 }
 
 html {
@@ -28,11 +29,29 @@ const Container = styled.div`
   max-width: 960px;
   padding: 0px 1.0875rem 1.45rem;
   padding-top: 0;
+  position: relative;
 `
 
 const Footer = styled.footer`
   font-family: 'Roboto Mono';
   text-align: center;
+  position: relative;
+  z-index: 10;
+
+  &:after {
+    z-index: 5;
+    content: '';
+    position: absolute;
+    display: block;
+    height: 200px;
+    top: -150px;
+    left: -15px;
+    width: 110px;
+    @media screen and (max-width: 500px) {
+      width: 40px;
+    }
+    background: linear-gradient(to bottom, #2a2e3800 0%, #2a2e38ff 100%);
+  }
 `
 
 const Layout = ({ children }) => (

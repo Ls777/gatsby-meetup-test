@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import Typing from 'react-typist'
+import 'react-typist/dist/typist.css'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
@@ -26,7 +27,9 @@ const NotFoundPage = ({ data }) => {
     <Layout>
       <SEO title='About' />
       <Container>
-        <h1>ABOUT</h1>
+        <h1>
+          <Typing stdTypingDelay={5}>ABOUT</Typing>
+        </h1>
         <Description dangerouslySetInnerHTML={groupDescription} />
       </Container>
     </Layout>
