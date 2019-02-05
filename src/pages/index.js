@@ -1,14 +1,14 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
-import Image from '../components/image'
 import SEO from '../components/seo'
 import Event from '../components/event'
 
 import Typing from 'react-typist'
 import 'react-typist/dist/typist.css'
+import Numberline from '../components/numberline'
 
 const Header = styled.div`
   display: flex;
@@ -75,13 +75,20 @@ const IndexPage = ({ data }) => {
           {'>'}
         </Icon>
         <Lead>
-          <Typing avgTypingDelay={70} stdTypingDelay={30}>
+          <Typing avgTypingDelay={60} stdTypingDelay={15}>
             Meet other Javascript Developers on Long Island.
           </Typing>
         </Lead>
       </Header>
       <Upcoming>{event ? `next event:` : `no upcoming event`}</Upcoming>
-      {event ? <Event event={event} /> : <Spacer />}
+      {event ? (
+        <>
+          <Numberline />
+          <Event event={event} />
+        </>
+      ) : (
+        <Spacer />
+      )}
     </Layout>
   )
 }

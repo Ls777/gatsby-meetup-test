@@ -23,7 +23,7 @@ const Number = styled.div`
   text-align: right;
 `
 
-const numbers = Array.from(new Array(200), (val, index) => index + 1)
+const numbers = Array.from(new Array(400), (val, index) => index + 1)
 
 export default () => (
   <NumberLine>
